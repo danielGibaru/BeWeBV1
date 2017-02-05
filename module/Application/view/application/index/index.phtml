@@ -1,0 +1,112 @@
+<!-- Navbar -->
+<nav class="navbar navbarmain">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <?php foreach($menu as $item) {
+                echo '<li><a href="' . $item->getUrl() .'">' . $item->getTitre() . '</a></li>';
+            } ?>
+        </ul>
+    </div>
+</nav>
+<!-- Fin navbar -->
+
+<!-- Flash message -->
+<?php if (!empty($message)) { ?>
+<div class="container"><div class="alert alert-info" role="alert"><?php echo $message; ?></div></div>
+<?php } ?>
+<!-- Fin message -->
+
+<!-- Sections articles -->
+<?php foreach ($articleList as $article) { ?>
+    <section id="<?php echo strtolower($article->getTitre()); ?>">
+    <h2 class="page_title"><?php echo $article->getTitre(); ?></h2>
+    <div class="container">
+        <div class="jumbotron">
+            <p>
+                <?php if (!empty($article->getImage())) { ?>
+                <img src="<?php echo $article->getImage(); ?>" class="article_img">
+                <?php } ?>
+                <?php echo $article->getContenu(); ?>
+            </p>
+        </div>
+    </div>
+</section>
+<?php } ?>
+<!-- Fin sections articles -->
+
+<!-- Section partenaires -->
+<section id="partenaires">
+    <h2 class="page_title">Partenaires</h2>
+    <div class="container partenaires">
+        <?php foreach($partenaireList as $partenaire) {
+            $partenaireUrl = $partenaire->getUrl();
+
+            echo '<div>';
+            if (!empty($partenaireUrl)) echo '<a href="' . $partenaireUrl . '" target="_blank">';
+            echo '<img src="' . $partenaire->getImg() .'" alt="">';
+            echo '<br><strong>' . $partenaire->getTitre() . '</strong>';
+            if (!empty($partenaireUrl))  echo '</a>';
+            echo '</div>';
+        } ?>
+    </div>
+</section>
+<!-- Fin section partenaires -->
+
+<!-- Section inscription -->
+<section id="inscription">
+    <h2 class="page_title">Inscription</h2>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container">
+                <br><br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque suscipit mi in iaculis rutrum. Fusce commodo massa sit amet justo ultrices aliquet. Integer in urna vitae dolor suscipit tincidunt at in diam. Morbi et condimentum est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc quis maximus ligula. Mauris viverra, lectus molestie volutpat consectetur, neque elit mattis ante, non ultrices nisi mi id dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed eros nibh, hendrerit ac gravida sit amet, laoreet non tellus. In quis dui ut diam sagittis viverra. Proin efficitur eu metus sit amet laoreet. Integer non sapien in risus facilisis tempus ut vestibulum odio. Quisque mattis pharetra sapien, quis fermentum purus. Vestibulum auctor vitae est eu cursus. Cras et sem turpis. Etiam efficitur dui ut cursus ultricies.
+                <br><br><br>
+                <?php echo $this->form()->openTag($newsletterForm); ?>
+                    <div class="center">
+                        <strong>Me tenir informé de la prochaine session de selections.</strong>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-4">
+                            <?php echo $this->formElement($newsletterForm->get('email')); ?>
+                        </div>
+                        <div class="col-sm-2">
+                            <?php echo $this->formElement($newsletterForm->get('submit')); ?>
+                        </div>
+                        <div class="col-sm-3"></div>
+                    </div>
+                <?php echo $this->form()->closeTag(); ?>
+                <br><br>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Fin section inscription -->
+
+<!-- Section contact -->
+<section id="contact">
+    <h2 class="page_title">Contactez nous</h2>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container">
+                <div class="center">
+                    <br><br>
+                    <strong>Vous desirez plus d'informations, déposez un commentaire ?</strong>
+                    <br><br>
+                </div>
+                <?php echo $this->form()->openTag($contactForm); ?>
+                    <?php echo $this->formElement($contactForm->get('email_contact')); ?>
+                    <br>
+                    <?php echo $this->formElement($contactForm->get('objet')); ?>
+                    <br>
+                    <?php echo $this->formElement($contactForm->get('message')); ?>
+                    <br>
+                    <?php echo $this->formElement($contactForm->get('submit')); ?>
+                <?php echo $this->form()->closeTag(); ?>
+                <br><br>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Fin section contact -->
