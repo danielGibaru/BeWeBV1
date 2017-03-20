@@ -11,7 +11,6 @@ namespace Admin\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-
 use Admin\Form\ArticleForm;
 use Admin\Model\ArticleModel;
 
@@ -108,5 +107,44 @@ class LandingpageController extends AbstractActionController
         }
         return new ViewModel(array('message' => $message,
                                    'articleForm' => $articleForm));
+    }
+    public function addAction(){
+        // Entity manager
+        $em = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
+        //$em = $this->getDoctrine()->getManager();
+        $message = "";
+        $addForm = new ArticleForm();
+        $request = $this->getRequest();
+
+            if ($request->isPost()){
+                $addModel = new ArticleModel();
+                $addForm->setInputFilter($addModel->getInputFilter());
+                $addForm->setData($request->getPost());
+                $message = "ispost";
+                // Si le form est valide
+                if($addForm->isValid()){
+                    $addModel->exchangeArray($addForm->getData());
+                    // RISQUE ERREUR !!!!!
+                    $add = new \Application\Entity\BeziersLandingpageBw();
+                    $add->setTitre($addModel->titre);
+                    $add->setContenu($addModel->contenu);
+                    $add->setImage($addModel->image);
+
+                    try {
+                        $em->persist($add);
+                        $em->flush();
+                        $message = "Vous avez ajouté un article";
+                        // $this->redirect('/index');
+                        // $this->redirect('admin/index/index');
+
+                    } catch (\Exception $ex) {
+                        $message = "Une erreur s'est produite, réessayez";
+                    }
+                }
+            }
+            return new ViewModel(array('message' => $message,
+                                       'addForm' => $addForm));
+
+
     }
 }
