@@ -20,6 +20,7 @@ class ArticleModel implements InputFilterAwareInterface
          $this->titre = (isset($data['titre']))  ? $data['titre']  : null;
          $this->contenu = (isset($data['contenu']))  ? $data['contenu']  : null;
          $this->image = (isset($data['image']))  ? $data['image']  : null;
+        //  $this->image = (isset($data['url']))  ? $data['url']  : null;
      }
 
      // Add content to these methods:
@@ -74,7 +75,25 @@ class ArticleModel implements InputFilterAwareInterface
 
 
             $inputFilter->add(array(
-               'name'     => 'image',
+               'name'     => 'img',
+               'required' => false,
+               'filters'  => array(
+                  array('name' => 'StripTags'),
+                  array('name' => 'StringTrim'),
+            ),
+            'validators' => array(
+               array(
+                  'name'    => 'StringLength',
+                  'options' => array(
+                     'encoding' => 'UTF-8',
+                     'min'      => 0,
+                     'max'      => 255,
+                     ),
+                  ),
+               ),
+            ));
+            $inputFilter->add(array(
+               'name'     => 'url',
                'required' => false,
                'filters'  => array(
                   array('name' => 'StripTags'),

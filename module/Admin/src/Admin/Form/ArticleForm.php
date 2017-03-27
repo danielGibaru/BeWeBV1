@@ -18,6 +18,8 @@ class ArticleForm extends Form
             ),
             'attributes' => array(
                 'class' => 'form-control', // Classe bootstrap
+                'placeholder' => 'Titre',
+
 
             ),
         ));
@@ -30,9 +32,11 @@ class ArticleForm extends Form
             ),
             'attributes' => array(
                 'class' => 'form-control', // Classe bootstrap
+                'placeholder' => 'Image',
+
             ),
         ));
-        // Input contenu
+//        Input contenu
         $this->add(array(
             'name' => 'contenu',
             'type' => 'textarea',
@@ -41,8 +45,21 @@ class ArticleForm extends Form
             ),
             'attributes' => array(
                 'class' => 'form-control', // Classe bootstrap
+                'placeholder' => 'Texte',
+
             ),
         ));
+        //
+        // $this->add(array(
+        //     'name' => 'url',
+        //     'type' => 'text',
+        //     'options' => array(
+        //         'label' => 'url',
+        //     ),
+        //     'attributes' => array(
+        //         'class' => 'form-control', // Classe bootstrap
+        //     ),
+        // ));
 
 
         // Bouton submit

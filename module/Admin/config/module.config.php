@@ -74,7 +74,8 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Admin\Controller\Index' => 'Admin\Controller\IndexController',
-            'Admin\Controller\Landingpage' => 'Admin\Controller\LandingpageController'
+            'Admin\Controller\Landingpage' => 'Admin\Controller\LandingpageController',
+            'Admin\Controller\Partenaires' => 'Admin\Controller\PartenairesController'
         ),
     ),
     'view_manager' => array(
@@ -91,6 +92,13 @@ return array(
             'admin/landingpage/delete' => __DIR__ . '/../view/admin/landingpage/delete.phtml',
             'admin/landingpage/edit' => __DIR__ . '/../view/admin/landingpage/edit.phtml',
             'admin/landingpage/add' => __DIR__ . '/../view/admin/landingpage/add.phtml',
+
+            'admin/partenaires/index' => __DIR__ . '/../view/admin/partenaires/index.phtml',
+            'admin/partenaires/delete' => __DIR__ . '/../view/admin/partenaires/delete.phtml',
+            'admin/partenaires/edit' => __DIR__ . '/../view/admin/partenaires/edit.phtml',
+            'admin/partenaires/add' => __DIR__ . '/../view/admin/partenaires/add.phtml',
+
+
 
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',

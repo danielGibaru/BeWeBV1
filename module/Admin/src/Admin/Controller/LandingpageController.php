@@ -58,12 +58,13 @@ class LandingpageController extends AbstractActionController
         $message = "";
         if (!empty($_GET['id'])) {
             $id = intval($_GET['id']);
+            echo"poney";
         }
         $articleForm = new ArticleForm();
 
         if ($id > 0) {
             $em = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
-            $article = $em->getRepository('Application\Entity\BeziersLandingpageBw')->find($id);
+            $article = $em->getRepository('Application\Entity\BeziersLandingpageBw')->findOneById($id);
 
             // Appel formulaire article
             $articleForm->get('titre')->setValue($article->getTitre());
