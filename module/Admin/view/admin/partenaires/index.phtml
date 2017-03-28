@@ -1,0 +1,33 @@
+<!-- Navbar -->
+<nav class="navbar navbarmain">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li><a href="/admin/index/index">Accueil</a></li>
+            <li><a href="/admin/landingpage/index">Articles Landingpage</a></li>
+            <li><a href="/admin/partenaires/index">Partenaires</a></li>
+            <li><a href="/admin/messages/index">Messages</a></li>
+        </ul>
+    </div>
+</nav>
+<!-- Fin navbar -->
+<section id="partenaires">
+    <h2 class="page_title">Partenaires</h2>
+    <div class="container partenaires">
+        <?php foreach($partenaireList as $partenaire) {
+            // $partenaireUrl = $partenaire->getUrl();
+            echo '<div>';
+            echo '<p>'.$partenaire->getTitre().'</p>';
+            echo '<a href="'.$partenaire->getUrl().'"><img src="'.$partenaire->getImg().'" alt=""></a>';
+            echo '</br><a href="/admin/partenaires/delete?id='. $partenaire->getId().'"'.'>Supprimer</a> | ';
+            echo '<a href="/admin/partenaires/edit?id=' .$partenaire->getId().'"'.'>Editer</a></div>';
+            // echo '<div>';
+            // if (!empty($partenaireUrl)) echo '<a href="' . $partenaireUrl . '" target="_blank">';
+            //     echo '<img src="' . $partenaire->getImg() .'" alt="">';
+            //     echo '<br><strong>' . $partenaire->getTitre() . '</strong>';
+            // if (!empty($partenaireUrl))  echo '</a>';
+            // echo "</div>";
+        } ?>
+    </div>
+    <div class="center"><a href="/admin/partenaires/add" class="btn btn-primary">Ajouter un partenaire</a></div>
+
+</section>

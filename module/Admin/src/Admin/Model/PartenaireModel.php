@@ -7,23 +7,20 @@ namespace Admin\Model;
  use Zend\InputFilter\InputFilterAwareInterface;
  use Zend\InputFilter\InputFilterInterface;
 
-class ArticleModel implements InputFilterAwareInterface
- {
+class PartenaireModel implements InputFilterAwareInterface
+{
     public $titre;
-    public $contenu;
     public $image;
+    public $url;
 
     protected $inputFilter;
 
     public function exchangeArray($data)
      {
          $this->titre = (isset($data['titre']))  ? $data['titre']  : null;
-         $this->contenu = (isset($data['contenu']))  ? $data['contenu']  : null;
          $this->image = (isset($data['image']))  ? $data['image']  : null;
-        //  $this->image = (isset($data['url']))  ? $data['url']  : null;
+         $this->url = (isset($data['url']))  ? $data['url']  : null;
      }
-
-     // Add content to these methods:
      public function setInputFilter(InputFilterInterface $inputFilter)
      {
          throw new \Exception("Not used");
@@ -53,29 +50,8 @@ class ArticleModel implements InputFilterAwareInterface
                   ),
                ),
             ));
-
             $inputFilter->add(array(
-               'name'     => 'contenu',
-               'required' => true,
-               'filters'  => array(
-                  array('name' => 'StripTags'),
-                  array('name' => 'StringTrim'),
-            ),
-            'validators' => array(
-               array(
-                  'name'    => 'StringLength',
-                  'options' => array(
-                     'encoding' => 'UTF-8',
-                     'min'      => 50,
-                     'max'      => 65000,
-                     ),
-                  ),
-               ),
-            ));
-
-
-            $inputFilter->add(array(
-               'name'     => 'img',
+               'name'     => 'image',
                'required' => false,
                'filters'  => array(
                   array('name' => 'StripTags'),
@@ -116,4 +92,4 @@ class ArticleModel implements InputFilterAwareInterface
 
         return $this->inputFilter;
     }
- }
+}

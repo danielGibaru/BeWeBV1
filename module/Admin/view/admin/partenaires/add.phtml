@@ -11,20 +11,17 @@
     </div>
 </nav>
 <!-- Fin navbar -->
-
 <div class="container">
+    <?php $message ?>
     <?php
-    echo $this->form()->openTag($articleForm);
-    // echo $this->form()->addTag($articleForm);
-    echo $this->formLabel($articleForm->get('titre'));
-    echo $this->formElement($articleForm->get('titre'));
-    //
-    echo $this->formLabel($articleForm->get('image'));
-    echo $this->formElement($articleForm->get('image'));
-    echo $this->formLabel($articleForm->get('contenu'));
-    echo $this->formElement($articleForm->get('contenu'));
-    //
-    echo $this->formElement($articleForm->get('submit'));
-    echo $this->form()->closeTag();
-    ?>
+     echo $this->form()->openTag($partenaireForm);
+     echo $this->formElement($partenaireForm->get('titre'));
+     ?></br><?php
+     echo $this->formElement($partenaireForm->get('image'));
+     ?></br><?php
+     echo $this->formElement($partenaireForm->get('url'));
+     ?></br><?php
+     echo $this->formElement($partenaireForm->get('submit'));
+     echo $this->form()->closeTag();
+     ?>
 </div>

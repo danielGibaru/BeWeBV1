@@ -2,31 +2,29 @@
 namespace Admin\Form;
 use Zend\Form\Form;
 
-class ArticleForm extends Form
+class PartenaireForm extends Form
 {
     public function __construct($name = null)
     {
-        // we want to ignore the name passed
-        parent::__construct('ArticleForm');
+        parent::__construct('PartenaireForm');
 
-        // Input titre
         $this->add(array(
             'name' => 'titre',
-            'type' => 'text',
+            'type' => 'Text',
             'options' => array(
                 'label' => 'Titre',
             ),
             'attributes' => array(
                 'class' => 'form-control', // Classe bootstrap
-                'placeholder' => 'Titre',
-
+                'placeholder' => 'Nom du partenaire',
 
             ),
         ));
-        // Input image
+
         $this->add(array(
             'name' => 'image',
-            'type' => 'text',
+            'type' => 'Text',
+            'value' => 'image',
             'options' => array(
                 'label' => 'Image',
             ),
@@ -36,33 +34,20 @@ class ArticleForm extends Form
 
             ),
         ));
-//        Input contenu
+
         $this->add(array(
-            'name' => 'contenu',
-            'type' => 'textarea',
+            'name' => 'url',
+            'type' => 'Text',
+            'value'=> 'url',
             'options' => array(
-                'label' => 'Contenu',
+                'label' => 'url',
             ),
             'attributes' => array(
                 'class' => 'form-control', // Classe bootstrap
-                'placeholder' => 'Texte',
+                'placeholder' => 'Url',
 
             ),
         ));
-        //
-        // $this->add(array(
-        //     'name' => 'url',
-        //     'type' => 'text',
-        //     'options' => array(
-        //         'label' => 'url',
-        //     ),
-        //     'attributes' => array(
-        //         'class' => 'form-control', // Classe bootstrap
-        //     ),
-        // ));
-
-
-        // Bouton submit
         $this->add(array(
             'name' => 'submit',
             'type' => 'Submit',
