@@ -1,0 +1,40 @@
+<!-- Navbar -->
+<nav class="navbar navbarmain">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li><a href="/admin/index/index">Accueil</a></li>
+            <li><a href="/admin/landingpage/index">Articles Landingpage</a></li>
+            <li><a href="/admin/partenaires/index">Partenaires</a></li>
+            <li><a href="/admin/messages/index">Messages</a></li>
+        </ul>
+    </div>
+</nav>
+<!-- Fin navbar -->
+
+<div class="container">
+    Administrateur
+<br><br>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Articles Landing Page</h3>
+      </div>
+      <div class="panel-body">
+          <table class="table">
+          <?php foreach ($articleList as $article)
+          { ?>
+              <tr>
+                  <td><?php echo $article->getId(); ?></td>
+                  <td><?php echo $article->getTitre(); ?></td>
+                  <td><?php echo substr($article->getContenu(), 0, 64); ?></td>
+                  <td><a href="/admin/landingpage/edit?id=<?php echo $article->getId(); ?>">Editer</a> |
+                      <a href="/admin/landingpage/delete?id=<?php echo $article->getId(); ?>">Supprimer</a>
+                  </td>
+              </tr>
+          <?php } ?>
+          </table>
+      </div>
+    </div>
+<div class="center"><a href="/admin/landingpage/add" class="btn btn-primary">Ajouter un article</a></div>
+
+
+</div>
