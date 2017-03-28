@@ -9,7 +9,6 @@ return array(
         'Application',
         'ZfcAdmin',
         'ZfcUser',
-        //'BjyAuthorize',
 
 
     ),
