@@ -7,6 +7,10 @@ return array(
         'DoctrineORMModule',
         'Admin',
         'Application',
+        'ZfcAdmin',
+        'ZfcUser',
+
+
     ),
 
     // These are various options for the listeners attached to the ModuleManager

@@ -13,6 +13,11 @@
         "doctrine/doctrine-orm-module": "dev-master",
 		"zendframework/zend-form": "dev-master",
 		"zendframework/zend-developer-tools": "dev-master",
-        "zendframework/zend-authentication": "^2.5"
+        "zendframework/zend-authentication": "^2.5",
+        "zf-commons/zfc-admin": "dev-master",
+        "zf-commons/zfc-user": "dev-master",
+
+
+
     }
 }
