@@ -1,0 +1,64 @@
+header {
+    text-align: center;
+    padding: 4em 0;
+}
+
+main {
+    min-height: 800px;
+}
+
+footer {
+    text-align: center;
+    padding: 2em 0;
+}
+
+.page_title {
+    text-align: center;
+    background-color: #EEE;
+    padding: 1em 0;
+}
+
+.jumbotron p{
+    padding: 2em;
+}
+
+.partenaires {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+}
+
+.partenaires div {
+    flex-basis: 25%;
+    flex-grow: 0.25;
+    padding: 1em;
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.article_img {
+    float: right;
+}
+
+.navbarmain {
+    background-color: #DDD;
+    text-align: center;
+}
+
+.navbarmain a {
+    color: black;
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
