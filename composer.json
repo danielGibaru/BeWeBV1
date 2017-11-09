@@ -15,7 +15,7 @@
 		"zendframework/zend-developer-tools": "dev-master",
         "zendframework/zend-authentication": "^2.5",
         "zf-commons/zfc-admin": "dev-master",
-        "zf-commons/zfc-user": "dev-master",
+        "zf-commons/zfc-user": "dev-master"
 
 
 
